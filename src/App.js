@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Saludo from './components/Saludo';
-import Despedida from './components/Despedida';
+import Form from './components/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
 
@@ -13,8 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Saludo minombre="Dany" edad={24} />
-        <Despedida />
+        <Form />
       </div>
     );
   }
