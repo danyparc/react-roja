@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Form extends Component {
   constructor(props) {
@@ -30,11 +31,20 @@ class Form extends Component {
 
   }
 
+  subirDatos = (event) => {
+    event.preventDefault();
+    const url = 'https://mongo-crud-cr.herokuapp.com/devf/api/v1/cursos';
+    axios.post(url, this.state)
+      .then(res => {
+        console.log('La respuesta es: ', res);
+      }).catch(err => console.log('hubo un error: ', err))
+  }
+
   render() {
     return (
       <div>
         <h1>Nuevo curso</h1>
-        <form action="">
+        <form action="" onSubmit={this.subirDatos}>
           <div className="form-group">
             <label htmlFor="nombre">Nombre</label>
             <input onChange={this.onInputChange} type="text" placeholder="Nombre del curso" name="nombre" id="nombre" />
